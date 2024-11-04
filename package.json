@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "tailwindcss": "sudo npx tailwindcss -i ./src/tailwind.css -o ./public/style.css --watch"
+    "tailwindcss": "npx tailwindcss -i ./src/tailwind.css -o ./public/style.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.14"
   }
 }

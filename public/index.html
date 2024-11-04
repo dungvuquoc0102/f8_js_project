@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,89 +10,143 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 "
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
 
-  <body>
+  <body class="bg-[#f3f3f3] font-['Nunito']">
     <div id="root">
+      <!-- header -->
       <header>
-        <div class="flex max-w-4xl mx-auto mt-5 items-center">
+        <div class="mx-auto mt-5 flex max-w-4xl items-center">
+          <!-- logo -->
           <div>
             <img class="h-10" src="./imgs/logo-shopee.png" alt="shopee logo" />
           </div>
-          <div class="flex-auto flex justify-center">
+          <!-- search input -->
+          <div class="flex flex-auto justify-center">
             <input
-              class="w-2/3 border-2 border-gray-300 border-solid rounded-full px-4 py-2 focus:border-orange-400 outline-none shadow-lg"
+              class="w-2/3 rounded-lg px-4 py-2 shadow-sm outline-none focus:border-orange-400"
               type="text"
-              placeholder="Tìm kiếm"
+              placeholder="Search"
             />
           </div>
+          <!-- login signup -->
           <div class="flex gap-4">
-            <div class="cursor-pointer text-orange-500">Đăng ký</div>
-            <div class="cursor-pointer">Đăng nhập</div>
+            <div class="cursor-pointer text-orange-500">Sign up</div>
+            <div class="cursor-pointer">Log in</div>
           </div>
         </div>
       </header>
       <!-- slider -->
-      <section class="splide max-w-4xl mx-auto mt-5">
-        <div class="splide__track rounded-xl">
+      <section class="splide mx-auto mt-5 max-w-4xl">
+        <div class="splide__track aspect-[10/3] rounded-lg shadow-md">
           <ul class="splide__list">
             <li class="splide__slide">
               <img
                 loading="lazy"
-                class="w-full h-full object-cover"
+                class="h-full w-full object-cover"
                 src="./imgs/slide-1.jpeg"
                 alt=""
               />
             </li>
             <li class="splide__slide">
-              <img loading="lazy" class="" src="./imgs/slide-2.jpg" alt="" />
+              <img loading="lazy" class="" src="./imgs/slide-2.jfif" alt="" />
             </li>
             <li class="splide__slide">
-              <img loading="lazy" class="" src="./imgs/slide-3.jpg" alt="" />
+              <img loading="lazy" class="" src="./imgs/slide-3.jpeg" alt="" />
             </li>
           </ul>
         </div>
       </section>
       <!-- category list -->
       <section
-        class="max-w-4xl mx-auto mt-10 border-2 border-gray-200 rounded-xl shadow-lg"
+        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white shadow-md"
       >
-        <h2 class="text-2xl p-4 border-b-2 border-gray-200">Category</h2>
+        <!-- title -->
+        <h2 class="border-b-2 border-gray-200 p-4 text-[20px] text-orange-600">
+          Category
+        </h2>
+        <!-- content -->
         <ul class="grid grid-cols-6">
-          <li class="p-4 hover:cursor-pointer">
-            <div class="">
-              <a class="flex flex-col items-center" href="#!">
-                <img
-                  class="w-28 h-28 object-cover"
-                  src="./imgs/category-1.webp"
-                  alt="category 1"
-                />
-                <span>mens-shirts</span>
-              </a>
-            </div>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
+          </li>
+          <li
+            class="border-b-[1px] border-r-[1px] border-gray-200 p-4 hover:cursor-pointer"
+          >
+            <a href="#!">
+              <span>mens-shirts</span>
+            </a>
           </li>
         </ul>
       </section>
-      <!-- sale products  -->
-      <section
-        class="max-w-4xl mx-auto mt-10 border-2 border-orange-400 rounded-xl shadow-lg"
-      >
+      <!-- big sale products  -->
+      <section class="mx-auto mt-7 max-w-4xl rounded-lg bg-white shadow-md">
         <!-- title -->
-        <div class="p-6">
-          <img src="./imgs/sale-title.png" alt="sale title" />
-        </div>
+        <h2 class="p-4 text-[22px] font-bold uppercase text-orange-600">
+          B<i class="fa-solid fa-bolt-lightning"></i>g sale
+        </h2>
         <!-- content -->
         <div>
-          <ul class="grid grid-cols-5 gap-6">
+          <ul class="grid grid-cols-5 gap-5 p-5 pt-0">
             <li>
               <a class="flex flex-col items-center" href="#!">
                 <img
-                  class="w-40 h-40 rounded-xl"
+                  class="h-40 w-40 rounded-lg"
                   src="./imgs/sale-product-1.jpeg"
                   alt="sale product 1"
                 />
-                <div class="text-orange-600 text-3xl py-4">
+                <div class="py-3 text-[20px] text-orange-600">
                   <span>$</span>
                   <span>8.76</span>
                 </div>
@@ -101,35 +155,60 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </ul>
         </div>
       </section>
-      <!-- banner -->
-      <section>
-        <div class="max-w-4xl mx-auto mt-10">
-          <img src="./imgs/banner.png" alt="banner" />
+      <!-- good rating products  -->
+      <section class="mx-auto mt-7 max-w-4xl rounded-lg bg-white shadow-md">
+        <!-- title -->
+        <h2 class="border-b-2 border-gray-200 p-4 text-[20px] text-orange-600">
+          Best Product
+        </h2>
+        <!-- content -->
+        <div>
+          <ul class="grid grid-cols-5 gap-5 p-5">
+            <li>
+              <a class="flex flex-col items-center" href="#!">
+                <img
+                  class="h-40 w-40 rounded-lg"
+                  src="./imgs/sale-product-1.jpeg"
+                  alt="sale product 1"
+                />
+                <div class="flex w-full items-center justify-between">
+                  <div class="text-[20px]">
+                    <span>4.9</span>
+                    <i class="fa-solid fa-star text-orange-400"></i>
+                  </div>
+                  <div class="py-3 text-[14px]">
+                    <span>$</span>
+                    <span>8.76</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
       <!-- suggest product -->
       <section>
         <div
-          class="max-w-4xl mx-auto mt-10 border-2 border-gray-200 rounded-xl mb-10 shadow-lg"
+          class="mx-auto mb-10 mt-7 max-w-4xl rounded-lg border-[1px] border-gray-200 bg-white shadow-md"
         >
           <!-- title -->
           <div
-            class="text-center uppercase text-orange-500 text-2xl py-5 border-b-2 border-orange-400"
+            class="border-b-2 border-orange-400 p-4 text-center text-[18px] uppercase text-orange-500"
           >
             <h2>Suggested Product</h2>
           </div>
           <!-- content -->
           <div>
-            <ul class="grid grid-cols-5 gap-6 p-6">
+            <ul class="grid grid-cols-5 gap-5 p-5">
               <li>
                 <a href="#!">
                   <img
                     loading="lazy"
-                    class="w-52 h-52 object-cover rounded-lg"
+                    class="aspect-square rounded-lg object-cover"
                     src="./imgs/img-product-1.webp"
                     alt="img product"
                   />
-                  <div class="line-clamp-2 mt-4">
+                  <div class="mt-4 line-clamp-2">
                     Máy Cắt Gỗ Nội Địa Công Suất 1420W Kèm 1 Lưỡi Cắt Chuyên
                     Dụng 185 Bảo Hành 6 Tháng
                   </div>
@@ -137,7 +216,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="-0.5 -0.5 4 16"
-                      class="flex-none h-6 -mr-px"
+                      class="-mr-px h-6 flex-none"
                     >
                       <path
                         d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
@@ -151,7 +230,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="-0.5 -0.5 4 16"
-                      class="rotate-180 flex-none h-6 -ml-px"
+                      class="-ml-px h-6 flex-none rotate-180"
                     >
                       <path
                         d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
@@ -162,7 +241,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                       ></path>
                     </svg>
                   </div>
-                  <div class="flex justify-between mt-2">
+                  <div class="mt-2 flex justify-between">
                     <div class="font-bold text-orange-600">
                       <span>$</span>
                       <span>7.98</span>
