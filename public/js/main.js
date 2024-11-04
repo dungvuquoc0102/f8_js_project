@@ -1,7 +1,3 @@
-var splide = new Splide(".splide", {
-	type: "loop",
-	padding: "10rem",
-	focus: "center"
-});
+var splide = new Splide(".splide", {});
 
 splide.mount();

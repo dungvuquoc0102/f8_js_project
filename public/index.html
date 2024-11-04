@@ -1,52 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F8 JS Project</title>
-  <link href="
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F8 JS Project</title>
+    <link
+      href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
-" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
-</head>
+"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<body>
-  <div id="root">
-    <header>
-      <div>
-        <img src="" alt="">
-      </div>
-      <div>
-        <input type="text" placeholder="Tìm kiếm">
-      </div>
-      <div>
-        <div>Đăng ký</div>
-        <div>Đăng nhập</div>
-      </div>
-    </header>
-    <!-- slider -->
-    <section class="splide" aria-label="Splide Basic HTML Example">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <li class="splide__slide">
-            <img class="" src="https://picsum.photos/1600/600?random=1" alt="">
-          </li>
-          <li class="splide__slide">
-            <img class="" src="https://picsum.photos/1600/600?random=2" alt="">
-          </li>
-          <li class="splide__slide">
-            <img class="" src="https://picsum.photos/1600/600?random=3" alt="">
+  <body>
+    <div id="root">
+      <header>
+        <div class="flex max-w-4xl mx-auto mt-5 items-center">
+          <div>
+            <img class="h-10" src="./imgs/logo-shopee.png" alt="shopee logo" />
+          </div>
+          <div class="flex-auto flex justify-center">
+            <input
+              class="w-2/3 border-2 border-gray-300 border-solid rounded-full px-4 py-2 focus:border-orange-400 outline-none shadow-lg"
+              type="text"
+              placeholder="Tìm kiếm"
+            />
+          </div>
+          <div class="flex gap-4">
+            <div class="cursor-pointer text-orange-500">Đăng ký</div>
+            <div class="cursor-pointer">Đăng nhập</div>
+          </div>
+        </div>
+      </header>
+      <!-- slider -->
+      <section class="splide max-w-4xl mx-auto mt-5">
+        <div class="splide__track rounded-xl">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <img
+                loading="lazy"
+                class="w-full h-full object-cover"
+                src="./imgs/slide-1.jpeg"
+                alt=""
+              />
+            </li>
+            <li class="splide__slide">
+              <img loading="lazy" class="" src="./imgs/slide-2.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img loading="lazy" class="" src="./imgs/slide-3.jpg" alt="" />
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- category list -->
+      <section
+        class="max-w-4xl mx-auto mt-10 border-2 border-gray-200 rounded-xl shadow-lg"
+      >
+        <h2 class="text-2xl p-4 border-b-2 border-gray-200">Category</h2>
+        <ul class="grid grid-cols-6">
+          <li class="p-4 hover:cursor-pointer">
+            <div class="">
+              <a class="flex flex-col items-center" href="#!">
+                <img
+                  class="w-28 h-28 object-cover"
+                  src="./imgs/category-1.webp"
+                  alt="category 1"
+                />
+                <span>mens-shirts</span>
+              </a>
+            </div>
           </li>
         </ul>
-      </div>
-    </section>
-    <footer></footer>
-  </div>
-  <script src="
+      </section>
+      <!-- sale products  -->
+      <section
+        class="max-w-4xl mx-auto mt-10 border-2 border-orange-400 rounded-xl shadow-lg"
+      >
+        <!-- title -->
+        <div class="p-6">
+          <img src="./imgs/sale-title.png" alt="sale title" />
+        </div>
+        <!-- content -->
+        <div>
+          <ul class="grid grid-cols-5 gap-6">
+            <li>
+              <a class="flex flex-col items-center" href="#!">
+                <img
+                  class="w-40 h-40 rounded-xl"
+                  src="./imgs/sale-product-1.jpeg"
+                  alt="sale product 1"
+                />
+                <div class="text-orange-600 text-3xl py-4">
+                  <span>$</span>
+                  <span>8.76</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- banner -->
+      <section>
+        <div class="max-w-4xl mx-auto mt-10">
+          <img src="./imgs/banner.png" alt="banner" />
+        </div>
+      </section>
+      <!-- suggest product -->
+      <section>
+        <div
+          class="max-w-4xl mx-auto mt-10 border-2 border-gray-200 rounded-xl mb-10 shadow-lg"
+        >
+          <!-- title -->
+          <div
+            class="text-center uppercase text-orange-500 text-2xl py-5 border-b-2 border-orange-400"
+          >
+            <h2>Suggested Product</h2>
+          </div>
+          <!-- content -->
+          <div>
+            <ul class="grid grid-cols-5 gap-6 p-6">
+              <li>
+                <a href="#!">
+                  <img
+                    loading="lazy"
+                    class="w-52 h-52 object-cover rounded-lg"
+                    src="./imgs/img-product-1.webp"
+                    alt="img product"
+                  />
+                  <div class="line-clamp-2 mt-4">
+                    Máy Cắt Gỗ Nội Địa Công Suất 1420W Kèm 1 Lưỡi Cắt Chuyên
+                    Dụng 185 Bảo Hành 6 Tháng
+                  </div>
+                  <div class="mt-2 flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="-0.5 -0.5 4 16"
+                      class="flex-none h-6 -mr-px"
+                    >
+                      <path
+                        d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
+                        stroke-width="1"
+                        transform=""
+                        stroke="#F69113"
+                        fill="#F69113"
+                      ></path>
+                    </svg>
+                    <span class="bg-orange-400 text-white">60% Discount</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="-0.5 -0.5 4 16"
+                      class="rotate-180 flex-none h-6 -ml-px"
+                    >
+                      <path
+                        d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
+                        stroke-width="1"
+                        transform=""
+                        stroke="#F69113"
+                        fill="#F69113"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex justify-between mt-2">
+                    <div class="font-bold text-orange-600">
+                      <span>$</span>
+                      <span>7.98</span>
+                    </div>
+                    <div>Stock 5</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+    <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 "></script>
-  <script src="./js/main.js"></script>
-</body>
-
+    <script src="./js/main.js"></script>
+  </body>
 </html>
