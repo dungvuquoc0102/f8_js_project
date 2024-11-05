@@ -93,7 +93,7 @@ async function renderSuggestedProducts() {
   const suggestedProducts = data.products;
   suggestedProducts.forEach((product) => {
     suggestedProductListHTML += `
-    <li>
+    <li class="border-[1px] border-gray-200 rounded-lg">
       <a href="#!">
         <img
           loading="lazy"
@@ -101,14 +101,14 @@ async function renderSuggestedProducts() {
           src="${product.thumbnail}"
           alt="img product"
         />
-        <div class="mt-4 line-clamp-2">
-          ${product.name}
+        <div class="pt-4 px-2 line-clamp-2 h-[64px] border-t-[1px] border-gray-200">
+          ${product.title}
         </div>
-        <div class="mt-2 flex ${Math.round(product.discountPercentage) === 0 ? "opacity-0" : ""}">
+        <div class="mt-2 px-2 flex ${Math.round(product.discountPercentage) === 0 ? "opacity-0" : "`"}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-0.5 -0.5 4 16"
-            class="-mr-px h-6 flex-none"
+            class="-mr-px h-5 flex-none"
           >
             <path
               d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
@@ -118,11 +118,11 @@ async function renderSuggestedProducts() {
               fill="#F69113"
             ></path>
           </svg>
-          <span class="bg-orange-400 text-white">${Math.round(product.discountPercentage)}% Discount</span>
+          <span class="bg-orange-400 text-white text-sm">${Math.round(product.discountPercentage)}% Discount</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-0.5 -0.5 4 16"
-            class="-ml-px h-6 flex-none rotate-180"
+            class="-ml-px h-5 flex-none rotate-180"
           >
             <path
               d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
@@ -133,12 +133,12 @@ async function renderSuggestedProducts() {
             ></path>
           </svg>
         </div>
-        <div class="mt-2 flex justify-between">
-          <div class="font-bold text-orange-600">
+        <div class="p-2 flex justify-between text-sm">
+          <div class="font-bold text-orange-600 whitespace-nowrap">
             <span>$</span>
             <span>${product.price}</span>
           </div>
-          <div>Stock ${product.stock}</div>
+          <div class="whitespace-nowrap">Stock ${product.stock}</div>
         </div>
       </a>
     </li>`;
