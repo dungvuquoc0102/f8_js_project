@@ -65,8 +65,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               <label for="price-low" class="">
                 <input
                   type="text"
-                  name="price-low"
-                  id="price-low"
+                  name="low-price"
+                  id="low-price"
                   class="w-[100px] border-[1px] border-gray-400"
                   placeholder="$ Low"
                 />
@@ -75,31 +75,32 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               <label for="price-high" class="">
                 <input
                   type="text"
-                  name="price-high"
-                  id="price-high"
+                  name="high-price"
+                  id="high-price"
                   class="w-[100px] border-[1px] border-gray-400"
                   placeholder="$ High"
                 />
               </label>
             </div>
-            <!-- button -->
+            <!-- button filter by price -->
             <div>
               <button
                 class="mt-4 rounded-lg bg-orange-600 px-4 py-1 text-white hover:bg-orange-500"
-                id="filter-price"
+                id="sort-price-button"
               >
                 Filter
               </button>
             </div>
           </div>
-          <!-- sort -->
+          <!-- sort with price and alphabet -->
           <div class="flex flex-col items-center">
             <h3 class="p-4 text-[16px]">Sort</h3>
             <select name="sort" id="sort" class="border-[1px] border-gray-400">
-              <option value="desc-title">A - Z</option>
-              <option value="asc-title">Z - A</option>
-              <option value="asc">Price Ascending</option>
-              <option value="desc">Price Descending</option>
+              <option value="default">Choose filter style</option>
+              <option value="asc-title">A - Z</option>
+              <option value="desc-title">Z - A</option>
+              <option value="asc-price">Price Ascending</option>
+              <option value="desc-price">Price Descending</option>
             </select>
           </div>
         </div>
@@ -115,14 +116,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </div>
           <!-- content -->
           <div>
-            <ul class="grid grid-cols-5 gap-5 py-5" id="suggested-product-list">
-              <li class="h-[214px] rounded-lg bg-gray-200"></li>
-              <li class="h-[214px] rounded-lg bg-gray-200"></li>
-              <li class="h-[214px] rounded-lg bg-gray-200"></li>
-              <li class="h-[214px] rounded-lg bg-gray-200"></li>
-              <li class="h-[214px] rounded-lg bg-gray-200"></li>
-              <li class="h-[214px] rounded-lg bg-gray-200"></li>
-            </ul>
+            <ul
+              class="grid grid-cols-5 gap-5 py-5"
+              id="result-product-list"
+            ></ul>
           </div>
         </div>
       </div>

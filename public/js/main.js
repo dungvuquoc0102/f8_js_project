@@ -15,6 +15,7 @@ const goodRatingProductListEl = document.getElementById(
 const suggestedProductListEl = document.getElementById(
   "suggested-product-list",
 );
+const searchInputEl = document.getElementById("search");
 
 //render
 async function renderCategories() {
@@ -23,9 +24,9 @@ async function renderCategories() {
   data.forEach((category) => {
     categoryListHTML += `
     <li
-      class="border-b-[1px] border-r-[1px] border-gray-200 p-2 hover:cursor-pointer hover:bg-gray-200 text-center flex items-center justify-center"
+      class="border-b-[1px] border-r-[1px] border-gray-200 hover:bg-gray-200 text-center"
     >
-      <a href="/public/category.html?category=${category.slug}">
+      <a href="/public/category.html?category=${category.slug}" class="flex items-center justify-center p-2 h-full">
         <span class="font-semibold">${category.name}</span> 
       </a>
     </li>`;
@@ -102,7 +103,6 @@ async function renderSuggestedProducts() {
     <li class="border-[1px] border-gray-200 rounded-lg bg-white hover:border-orange-400 hover:scale-105 shadow-md">
       <a href="#!">
         <img
-          loading="lazy"
           class="aspect-square rounded-lg object-cover"
           src="${product.thumbnail}"
           alt="img product"
@@ -151,6 +151,16 @@ async function renderSuggestedProducts() {
   });
   suggestedProductListEl.innerHTML = suggestedProductListHTML;
 }
+
+//event listener
+searchInputEl.addEventListener("keydown", async (e) => {
+  if (e.key === "Enter") {
+    const search = searchInputEl.value;
+    if (search) {
+      window.location.href = `/public/category.html?search=${search}`;
+    }
+  }
+});
 
 //run app
 renderCategories();

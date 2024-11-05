@@ -10,7 +10,7 @@ function renderHeaderAndFooter() {
   headerEl.innerHTML = `
     <div class="mx-auto flex max-w-4xl items-center py-5">
       <!-- logo -->
-      <div>
+      <a href="/public">
         <svg
           viewBox="0 0 192 65"
           class="aspect-[162/50] h-[40px] fill-white"
@@ -21,13 +21,15 @@ function renderHeaderAndFooter() {
             ></path>
           </g>
         </svg>
-      </div>
+      </a>
       <!-- search input -->
       <div class="flex flex-auto justify-center">
         <input
           class="w-2/3 rounded-lg px-4 py-2 shadow-md outline-none focus:border-orange-400"
           type="text"
           placeholder="Search"
+          id="search"
+          value=""
         />
       </div>
       <!-- login signup -->
