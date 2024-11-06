@@ -43,5 +43,14 @@ function renderHeaderAndFooter() {
     <div class="bg-[linear-gradient(-180deg,#f53d2d,#f63)] py-5 text-center text-white">
       <p>&copy; 2024 F8 JS Project</p>
     </div>`;
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      headerEl.classList.add("bg-white");
+      headerEl.classList.remove("bg-[#333]");
+    } else {
+      headerEl.classList.add("bg-[linear-gradient(-180deg,#f53d2d,#f63)]");
+      headerEl.classList.remove("bg-white");
+    }
+  });
 }
 export default renderHeaderAndFooter;

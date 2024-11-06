@@ -8,14 +8,90 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./public/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/product-detail.css" />
   </head>
-  <body>
+  <body class="bg-[#f3f3f3] font-['Nunito']">
     <header id="header"></header>
     <!-- product detail -->
-    <section class="min-h-screen"></section>
+    <div class="min-h-screen">
+      <!-- nav link -->
+      <nav
+        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white shadow-md"
+      >
+        <ul class="flex px-4 py-2" id="nav-link">
+          <li class="flex items-center">
+            <a class="mr-3 block text-blue-500" href="#!">Shopee</a>
+            <i class="fa-solid fa-angle-right text-xs"></i>
+          </li>
+          <li class="flex items-center">
+            <a class="mx-3 block text-blue-500" href="#!">Category</a>
+            <i class="fa-solid fa-angle-right text-xs"></i>
+          </li>
+          <li class="ml-3">Product</li>
+        </ul>
+      </nav>
+      <!-- content -->
+      <div
+        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white shadow-md"
+      >
+        <!-- product image -->
+        <div>
+          <section
+            id="thumbnail-carousel"
+            class="splide"
+            aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel."
+          >
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <img src="./imgs/category-1.webp" alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img src="./imgs/category-2.webp" alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img src="./imgs/category-3.webp" alt="" />
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <!-- product info -->
+        <div>
+          <!-- product name -->
+          <div></div>
+          <!-- product rating star -->
+          <div></div>
+          <!-- product price -->
+          <div></div>
+          <!-- form add to cart -->
+          <div>
+            <!-- quantity -->
+            <div></div>
+            <!-- button add to cart -->
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <!-- product description -->
+      <div></div>
+      <!-- product rating list -->
+      <div>
+        <!-- rating item -->
+        <div></div>
+      </div>
+      <!-- product suggestion -->
+      <div>
+        <!-- product suggested item -->
+        <div></div>
+      </div>
+    </div>
     <footer id="footer"></footer>
+    <script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="./public/js/product-detail.js"></script>
+    <script type="module" src="js/product-detail.js"></script>
   </body>
 </html>
