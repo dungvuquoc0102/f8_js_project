@@ -26,7 +26,7 @@ async function renderCategories() {
     <li
       class="border-b-[1px] border-r-[1px] border-gray-200 hover:bg-gray-200 text-center"
     >
-      <a href="/public/category.html?category=${category.slug}" class="flex items-center justify-center p-2 h-full">
+      <a href="./public/category.html?category=${category.slug}" class="flex items-center justify-center p-2 h-full">
         <span class="font-semibold">${category.name}</span> 
       </a>
     </li>`;
