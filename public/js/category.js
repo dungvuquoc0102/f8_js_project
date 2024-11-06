@@ -1,4 +1,4 @@
-import services from "./services.js";
+import services from "./partials/services.js";
 import renderHeaderAndFooter from "./partials/headerAndFooter.js";
 
 //render header and footer
