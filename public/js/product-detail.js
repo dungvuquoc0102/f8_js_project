@@ -1,14 +1,24 @@
 import services from "./partials/services.js";
 import renderHeaderAndFooter from "./partials/headerAndFooter.js";
 
-document.addEventListener("DOMContentLoaded", function () {
-  new Splide("#thumbnail-carousel", {
-    fixedWidth: 100,
-    fixedHeight: 60,
-    gap: 10,
-    rewind: true,
-    pagination: false,
-  }).mount();
+//swiper slider
+var swiper = new Swiper(".mySwiper", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 4,
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+var swiperPreview = new Swiper(".mySwiperPreview", {
+  loop: true,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper: swiper,
+  },
 });
 
 // Render header and footer
