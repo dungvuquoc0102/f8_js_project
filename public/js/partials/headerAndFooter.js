@@ -37,6 +37,14 @@ function renderHeaderAndFooter() {
         <div class="cursor-pointer">Sign up</div>
         <div class="cursor-pointer">Log in</div>
       </div>
+      <!-- cart -->
+      <div class="flex gap-4 text-white ml-4 relative">
+        <div class="cursor-pointer">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <!-- number of items -->
+        <div class="absolute top-0 left-0">0</div>
+      </div>
     </div>`;
   const footerEl = document.getElementById("footer");
   footerEl.innerHTML = `
