@@ -43,7 +43,7 @@ async function renderBigSaleProducts() {
   bigSaleProducts.forEach((product) => {
     bigSaleProductListHTML += `
     <li>
-      <a class="flex flex-col items-center relative hover:bg-gray-200 rounded-lg overflow-hidden" href="#!">
+      <a class="flex flex-col items-center relative hover:bg-gray-200 rounded-lg overflow-hidden" href="product-detail.html?id=${product.id}">
         <img
           class="rounded-lg object-cover aspect-square w-full"
           src="${product.thumbnail}"
@@ -71,7 +71,7 @@ async function renderGoodRatingProducts() {
   goodRatingProducts.forEach((product) => {
     goodRatingProductListHTML += `
     <li>
-      <a class="flex flex-col items-center hover:bg-gray-200 rounded-lg overflow-hidden" href="#!">
+      <a class="flex flex-col items-center hover:bg-gray-200 rounded-lg overflow-hidden" href="product-detail.html?id=${product.id}">
         <img
           class="rounded-lg object-cover aspect-square w-full"
           src="${product.thumbnail}"
@@ -101,7 +101,7 @@ async function renderSuggestedProducts() {
   suggestedProducts.forEach((product) => {
     suggestedProductListHTML += `
     <li class="border-[1px] border-gray-200 rounded-lg bg-white hover:border-orange-400 hover:scale-105 shadow-md">
-      <a href="#!">
+      <a href="product-detail.html?id=${product.id}">
         <img
           class="aspect-square rounded-lg object-cover"
           src="${product.thumbnail}"

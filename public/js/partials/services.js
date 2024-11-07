@@ -8,5 +8,13 @@ async function getProducts() {
 async function getProductsByCategory(category) {
   return await axios.get(`${url}/category/${category}`);
 }
+async function getProductById(id) {
+  return await axios.get(`${url}/${id}`);
+}
 
-export default { getCategories, getProducts, getProductsByCategory };
+export default {
+  getCategories,
+  getProducts,
+  getProductsByCategory,
+  getProductById,
+};

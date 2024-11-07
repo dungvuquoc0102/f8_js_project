@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Detail - F8 JS Project</title>
+    <!-- link icon -->
+    <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon" />
     <!-- link font awesome -->
     <link
       rel="stylesheet"
@@ -25,26 +27,26 @@
     <div class="min-h-screen">
       <!-- nav link -->
       <nav
-        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white shadow-md"
+        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white text-[14px] shadow-md"
       >
-        <ul class="flex px-4 py-2" id="nav-link">
+        <ul class="flex px-4 py-2" id="nav-link-list">
           <li class="flex items-center">
             <a class="mr-3 block text-blue-500" href="#!">Shopee</a>
-            <i class="fa-solid fa-angle-right text-xs"></i>
+            <i class="fa-solid fa-angle-right text-xs text-gray-400"></i>
           </li>
           <li class="flex items-center">
             <a class="mx-3 block text-blue-500" href="#!">Category</a>
-            <i class="fa-solid fa-angle-right text-xs"></i>
+            <i class="fa-solid fa-angle-right text-xs text-gray-400"></i>
           </li>
-          <li class="ml-3">Product</li>
+          <li class="ml-3 line-clamp-1">Product</li>
         </ul>
       </nav>
       <!-- content -->
       <div
-        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white shadow-md"
+        class="mx-auto mt-3 grid max-w-4xl grid-cols-2 gap-7 rounded-lg border-gray-200 bg-white p-5 shadow-md"
       >
         <!-- product image -->
-        <div class="w-1/2">
+        <div id="product-image">
           <!-- Swiper -->
           <div class="swiper mySwiperPreview">
             <div class="swiper-wrapper">
@@ -79,8 +81,8 @@
                 <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
               </div>
             </div>
-            <div class="swiper-button-next text-gray-500"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next text-white"></div>
+            <div class="swiper-button-prev text-white"></div>
           </div>
           <div thumbsSlider="" class="swiper mySwiper">
             <div class="swiper-wrapper">
@@ -118,33 +120,234 @@
           </div>
         </div>
         <!-- product info -->
-        <div>
+        <div id="product-info">
           <!-- product name -->
-          <div></div>
-          <!-- product rating star -->
-          <div></div>
+          <h1 class="text-xl font-bold">
+            Áo Thun AM BE Nữ In Hình Nhiều Họa Tiết TỔNG HỢP Siêu Cute
+          </h1>
+          <!-- product rating star and stock -->
+          <div class="mt-3 flex">
+            <!-- star -->
+            <div class="flex pr-3">
+              <span>4.3</span>
+              <i
+                class="fa-solid fa-star ml-1 mt-[5px] block text-[12px] text-yellow-500"
+              ></i>
+            </div>
+            <!-- number of stock -->
+            <div class="border-l-[1px] border-gray-300 pl-3">
+              <span>5 pieces available</span>
+            </div>
+          </div>
           <!-- product price -->
-          <div></div>
+          <div class="mt-4 flex items-center gap-2 rounded-lg bg-gray-100 p-3">
+            <span class="text-3xl font-bold text-orange-600">$199.00</span>
+            <span class="text-gray-400 line-through">$299.00</span>
+            <span
+              class="rounded-md bg-red-200 px-1 py-[2px] text-xs font-bold text-red-600"
+              >-50%</span
+            >
+          </div>
           <!-- form add to cart -->
-          <div>
+          <div class="mt-4">
             <!-- quantity -->
-            <div></div>
+            <div
+              class="flex w-fit items-center rounded-md border-[1px] border-gray-300"
+            >
+              <button
+                class="flex h-[38px] w-[38px] items-center justify-center rounded-lg"
+              >
+                <i class="fa-solid fa-minus text-gray-500"></i>
+              </button>
+              <input
+                class="h-[38px] w-[60px] border-x-[1px] border-gray-300 text-center outline-none"
+                type="text"
+                value="1"
+              />
+              <button
+                class="flex h-[38px] w-[38px] items-center justify-center rounded-lg"
+              >
+                <i class="fa-solid fa-plus text-gray-500"></i>
+              </button>
+            </div>
             <!-- button add to cart -->
-            <div></div>
+            <div class="mt-4">
+              <button
+                class="rounded-md bg-orange-600 px-4 py-2 text-white hover:bg-orange-500"
+              >
+                <i class="fa-solid fa-cart-shopping mr-1"></i>
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <!-- product description -->
-      <div></div>
+      <div
+        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white px-5 py-2 shadow-md"
+      >
+        <!-- title -->
+        <h2 class="text-xl font-bold">Product description</h2>
+        <!-- description -->
+        <div class="mt-1">
+          Áo thun (áo phông) là một cụm từ chỉ một loại áo phổ biến đối với cả
+          nam và nữ. Tên tiếng anh của trang phục này là áo T-shirt. Tên T-shirt
+          được bắt nguồn từ hình dáng giống hình chữ T đơn giản với hai cánh tay
+          áo và phần thân hình chữ nhật.
+        </div>
+      </div>
       <!-- product rating list -->
-      <div>
-        <!-- rating item -->
-        <div></div>
+      <div class="mx-auto mt-7 max-w-4xl">
+        <!-- title -->
+        <div class="rounded-t-lg bg-white px-5 py-1 font-bold shadow-md">
+          <h2 class="text-xl font-bold">Product rating</h2>
+        </div>
+        <!-- rating item with name, date, comment, rating -->
+        <ul class="mt-3 grid grid-cols-2 gap-3">
+          <li class="rounded-lg bg-white p-5 shadow-md">
+            <!-- email -->
+            <div class="flex items-center">
+              <span class="block text-sm text-gray-400 hover:text-gray-600"
+                >LpG6h@example.com</span
+              >
+            </div>
+            <!-- name and date -->
+            <div class="mt-1">
+              <span>John Doe</span>
+              <span class="ml-1 text-sm text-gray-400">- 2 hours ago</span>
+            </div>
+            <!-- rating star -->
+            <div class="mt-1 flex">
+              <span>4.3</span>
+              <i
+                class="fa-solid fa-star ml-1 mt-[5px] block text-[12px] text-yellow-500"
+              ></i>
+            </div>
+            <!-- comment -->
+            <div class="mt-1">
+              <p class="line-clamp-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Temporibus voluptate voluptatum quae. Doloremque, cumque. Lorem
+              </p>
+            </div>
+          </li>
+          <li class="rounded-lg bg-white p-5 shadow-md">
+            <!-- email -->
+            <div class="flex items-center">
+              <span class="block text-sm text-gray-400 hover:text-gray-600"
+                >LpG6h@example.com</span
+              >
+            </div>
+            <!-- name and date -->
+            <div class="mt-1">
+              <span>John Doe</span>
+              <span class="ml-1 text-sm text-gray-400">- 2 hours ago</span>
+            </div>
+            <!-- rating star -->
+            <div class="mt-1 flex">
+              <span>4.3</span>
+              <i
+                class="fa-solid fa-star ml-1 mt-[5px] block text-[12px] text-yellow-500"
+              ></i>
+            </div>
+            <!-- comment -->
+            <div class="mt-1">
+              <p class="line-clamp-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Temporibus voluptate voluptatum quae. Doloremque, cumque. Lorem
+              </p>
+            </div>
+          </li>
+          <li class="rounded-lg bg-white p-5 shadow-md">
+            <!-- email -->
+            <div class="flex items-center">
+              <span class="block text-sm text-gray-400 hover:text-gray-600"
+                >LpG6h@example.com</span
+              >
+            </div>
+            <!-- name and date -->
+            <div class="mt-1">
+              <span>John Doe</span>
+              <span class="ml-1 text-sm text-gray-400">- 2 hours ago</span>
+            </div>
+            <!-- rating star -->
+            <div class="mt-1 flex">
+              <span>4.3</span>
+              <i
+                class="fa-solid fa-star ml-1 mt-[5px] block text-[12px] text-yellow-500"
+              ></i>
+            </div>
+            <!-- comment -->
+            <div class="mt-1">
+              <p class="line-clamp-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Temporibus voluptate voluptatum quae. Doloremque, cumque. Lorem
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
       <!-- product suggestion -->
-      <div>
+      <div class="mx-auto my-7 max-w-4xl rounded-lg bg-white p-5 shadow-md">
+        <!-- title -->
+        <h2 class="text-xl font-bold">Product suggestion</h2>
         <!-- product suggested item -->
-        <div></div>
+        <ul class="mt-3 grid grid-cols-5 gap-3">
+          <li
+            class="rounded-lg border-[1px] border-gray-200 bg-white shadow-md hover:scale-105 hover:border-orange-400"
+          >
+            <a href="#!">
+              <img
+                class="aspect-square rounded-lg object-cover"
+                src="./imgs/img-product-1.webp"
+                alt="img product"
+              />
+              <div
+                class="line-clamp-2 h-[56px] border-t-[1px] border-gray-200 px-2 pt-2"
+              >
+                Áo Thun AM BE Nữ In Hình Nhiều Họa Tiết TỔNG HỢP Siêu Cute
+              </div>
+              <div class="mt-2 flex px-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="-0.5 -0.5 4 16"
+                  class="-mr-px h-5 flex-none"
+                >
+                  <path
+                    d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
+                    stroke-width="1"
+                    transform=""
+                    stroke="#F69113"
+                    fill="#F69113"
+                  ></path>
+                </svg>
+                <span class="bg-orange-400 text-sm text-white"
+                  >20% Discount</span
+                >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="-0.5 -0.5 4 16"
+                  class="-ml-px h-5 flex-none rotate-180"
+                >
+                  <path
+                    d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
+                    stroke-width="1"
+                    transform=""
+                    stroke="#F69113"
+                    fill="#F69113"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex justify-between p-2 text-sm">
+                <div class="whitespace-nowrap font-bold text-orange-600">
+                  <span>$</span>
+                  <span>9.99</span>
+                </div>
+                <div class="whitespace-nowrap">Stock 5</div>
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
     <footer id="footer"></footer>

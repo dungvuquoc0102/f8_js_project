@@ -10,7 +10,7 @@ function renderHeaderAndFooter() {
   headerEl.innerHTML = `
     <div class="mx-auto flex max-w-4xl items-center py-5">
       <!-- logo -->
-      <a href="/public">
+      <a href="index.html">
         <svg
           viewBox="0 0 192 65"
           class="aspect-[162/50] h-[40px] fill-white"
