@@ -78,7 +78,7 @@ async function renderProductList() {
   products.forEach((product) => {
     resultProductListHTML += `
     <li class="border-[1px] border-gray-200 rounded-lg bg-white hover:border-orange-400 hover:scale-105 shadow-md">
-      <a href="/public/product-detail.html?id=${product.id}">
+      <a href="product-detail.html?id=${product.id}">
         <img
           loading="lazy"
           class="aspect-square rounded-lg object-cover"
