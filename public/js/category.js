@@ -132,6 +132,8 @@ async function renderProductList() {
   });
   if (resultProductListHTML === "") {
     noProductFoundEl.style.display = "block";
+  } else {
+    noProductFoundEl.style.display = "none";
   }
   resultProductListEl.innerHTML = resultProductListHTML;
 }
