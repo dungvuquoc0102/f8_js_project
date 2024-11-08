@@ -82,8 +82,8 @@ function renderProductInfo() {
           </div>
           <!-- product price -->
           <div class="mt-4 flex items-center gap-2 rounded-lg bg-gray-100 p-3">
-            <span class="text-3xl font-bold text-orange-600">$${product.price}</span>
-            <span class="text-gray-400 line-through">$${((product.price * (100 + product.discountPercentage)) / 100).toFixed(2)}</span>
+            <span class="text-3xl font-bold text-orange-600">$${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
+            <span class="text-gray-400 line-through">$${product.price}</span>
             <span
               class="rounded-md bg-red-200 px-1 py-[2px] text-xs font-bold text-red-600"
               >-${product.discountPercentage}%</span
@@ -97,6 +97,7 @@ function renderProductInfo() {
             >
               <button
                 class="flex h-[38px] w-[38px] items-center justify-center rounded-lg"
+                id="decrease-quantity"
               >
                 <i class="fa-solid fa-minus text-gray-500"></i>
               </button>
@@ -104,9 +105,12 @@ function renderProductInfo() {
                 class="h-[38px] w-[60px] border-x-[1px] border-gray-300 text-center outline-none"
                 type="text"
                 value="1"
+                id="quantity"
+                disabled
               />
               <button
                 class="flex h-[38px] w-[38px] items-center justify-center rounded-lg"
+                id="increase-quantity"
               >
                 <i class="fa-solid fa-plus text-gray-500"></i>
               </button>
@@ -115,6 +119,7 @@ function renderProductInfo() {
             <div class="mt-4">
               <button
                 class="rounded-md bg-orange-600 px-4 py-2 text-white hover:bg-orange-500"
+                id="add-to-cart"
               >
                 <i class="fa-solid fa-cart-shopping mr-1"></i>
                 Add to cart
@@ -129,6 +134,64 @@ function renderProductInfo() {
 renderNavLinkList();
 renderProductImage();
 renderProductInfo();
+
+//get element
+const decreaseQuantityBtn = document.getElementById("decrease-quantity");
+const increaseQuantityBtn = document.getElementById("increase-quantity");
+const quantityInput = document.getElementById("quantity");
+const addToCartBtn = document.getElementById("add-to-cart");
+
+//event listener
+function checkQuantityInput() {
+  if (+quantityInput.value < 1) {
+    quantityInput.value = 1;
+  }
+  if (+quantityInput.value > product.stock) {
+    quantityInput.value = product.stock;
+  }
+  if (+quantityInput.value === 1) {
+    decreaseQuantityBtn.disabled = true;
+    decreaseQuantityBtn.style.opacity = "0.5";
+  }
+  if (+quantityInput.value > 1) {
+    decreaseQuantityBtn.disabled = false;
+    decreaseQuantityBtn.style.opacity = 1;
+  }
+  if (+quantityInput.value === product.stock) {
+    increaseQuantityBtn.disabled = true;
+    increaseQuantityBtn.style.opacity = 0.5;
+  }
+  if (+quantityInput.value < product.stock) {
+    increaseQuantityBtn.disabled = false;
+    increaseQuantityBtn.style.opacity = 1;
+  }
+}
+checkQuantityInput();
+decreaseQuantityBtn.addEventListener("click", () => {
+  quantityInput.value = parseInt(quantityInput.value) - 1;
+  checkQuantityInput();
+});
+increaseQuantityBtn.addEventListener("click", () => {
+  quantityInput.value = parseInt(quantityInput.value) + 1;
+  checkQuantityInput();
+});
+addToCartBtn.addEventListener("click", () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItem = cart.find((item) => item.id === product.id);
+  if (cartItem) {
+    let tempQuantity = cartItem.quantity + +quantityInput.value;
+    if (tempQuantity > product.stock) {
+      alert(`Only ${product.stock} pieces available`);
+      return;
+    }
+    cartItem.quantity = tempQuantity;
+  } else {
+    cart.push({ ...product, quantity: +quantityInput.value });
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to cart");
+  renderHeaderAndFooter();
+});
 
 //swiper slider
 var swiper = new Swiper(".mySwiper", {

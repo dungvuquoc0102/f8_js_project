@@ -1,5 +1,12 @@
-function renderHeaderAndFooter() {
+async function renderHeaderAndFooter() {
+  //get cart in localstorage
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let addedProductNumber = cart.length;
+
+  //get element
   const headerEl = document.getElementById("header");
+
+  //render header
   headerEl.classList.add(
     "sticky",
     "inset-0",
@@ -34,31 +41,79 @@ function renderHeaderAndFooter() {
       </div>
       <!-- login signup -->
       <div class="flex gap-4 text-white">
-        <div class="cursor-pointer">Sign up</div>
-        <div class="cursor-pointer">Log in</div>
+        <a href="#!">Sign up</a>
+        <a href="#!">Log in</a>
       </div>
       <!-- cart -->
-      <div class="flex gap-4 text-white ml-4 relative">
-        <div class="cursor-pointer">
+      <div class="group flex gap-4 text-white ml-4 relative cursor-pointer" id="cart">
+        <div>
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
         <!-- number of items -->
-        <div class="absolute top-0 left-0">0</div>
+        <div class="absolute top-[-10px] left-[11px] bg-white px-[8px] py-[1px] flex justify-center items-center text-orange-500 rounded-full text-sm border-2 border-[#FB5631]">
+          <span class="leading-none" id="added-product-number">${addedProductNumber}</span>
+        </div>
+        <!-- cart preview -->
+        <div id="cart-preview" class="group-hover:block hidden absolute bottom-0 translate-y-full -right-7 z-[1000] transition-all p-4 text-black">
+          <div class="bg-white shadow-md w-[300px] p-3 rounded-lg">
+            <!-- title -->
+            <h2 class="text-lg font-bold">Cart</h2>
+            <!-- cart list -->
+            <div class="mt-3">
+              <!-- cart list -->
+              <ul id="cart-list" class="divide-y divide-gray-300"></ul>
+              <!-- no item in cart -->
+              <div class="${addedProductNumber ? "hidden" : ""} text-center mt-3" id="no-item-in-cart">No item in cart</div>
+            </div>
+            <!-- total price -->
+            <div class="mt-4 text-end">
+              <div class="text-lg font-bold">Total: $<span id="cart-total">9.99</span></div>
+            </div>
+            <div class="mt-4">
+              <button class="rounded-md bg-orange-600 px-4 py-2 text-white hover:bg-orange-500 w-full">
+                View Cart
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>`;
+
+  //get element
+  const cartListEl = document.getElementById("cart-list");
+  const cartTotalEl = document.getElementById("cart-total");
+
+  //render
+  cartListEl.innerHTML = cart
+    .map(
+      (product) => `
+      <li class="flex justify-between gap-2 items-center py-2">
+        <!-- product image -->
+        <img src="${product.thumbnail}" alt="product" class="w-[50px] h-[50px] object-cover rounded-lg" />
+        <!-- product name -->
+        <div class="text-sm line-clamp-1 flex-grow">${product.title}</div>
+        <!-- product price -->
+        <span class="text-sm text-orange-600">$${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
+      </li>
+    `,
+    )
+    .join("");
+  cartTotalEl.textContent = cart
+    .reduce(
+      (total, product) =>
+        total +
+        +((product.price * (100 - product.discountPercentage)) / 100).toFixed(
+          2,
+        ) *
+          product.quantity,
+      0,
+    )
+    .toFixed(2);
+
   const footerEl = document.getElementById("footer");
   footerEl.innerHTML = `
     <div class="bg-[linear-gradient(-180deg,#f53d2d,#f63)] py-5 text-center text-white">
       <p>&copy; 2024 F8 JS Project</p>
     </div>`;
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-      headerEl.classList.add("bg-white");
-      headerEl.classList.remove("bg-[#333]");
-    } else {
-      headerEl.classList.add("bg-[linear-gradient(-180deg,#f53d2d,#f63)]");
-      headerEl.classList.remove("bg-white");
-    }
-  });
 }
 export default renderHeaderAndFooter;

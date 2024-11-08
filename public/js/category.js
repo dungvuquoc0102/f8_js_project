@@ -21,6 +21,7 @@ const highPricePriceInputEl = document.getElementById("high-price");
 const sortPriceButtonEl = document.getElementById("sort-price-button");
 const sortSelectEl = document.getElementById("sort");
 const searchInputEl = document.getElementById("search");
+const noProductFoundEl = document.getElementById("no-product-found");
 
 //render product list, category select, brand select
 async function renderProductList() {
@@ -75,6 +76,7 @@ async function renderProductList() {
     );
   }
   products = products.slice(0, 100);
+  console.log(products);
   products.forEach((product) => {
     resultProductListHTML += `
     <li class="border-[1px] border-gray-200 rounded-lg bg-white hover:border-orange-400 hover:scale-105 shadow-md">
@@ -120,7 +122,7 @@ async function renderProductList() {
         <div class="p-2 flex justify-between text-sm">
           <div class="font-bold text-orange-600 whitespace-nowrap">
             <span>$</span>
-            <span>${product.price}</span>
+            <span>${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
           </div>
           <div class="whitespace-nowrap">Stock ${product.stock}</div>
         </div>
@@ -128,6 +130,9 @@ async function renderProductList() {
     </li>
     `;
   });
+  if (resultProductListHTML === "") {
+    noProductFoundEl.style.display = "block";
+  }
   resultProductListEl.innerHTML = resultProductListHTML;
 }
 async function renderAndSetCategorySelect() {
