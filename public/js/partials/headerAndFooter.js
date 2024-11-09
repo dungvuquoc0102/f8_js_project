@@ -87,13 +87,15 @@ async function renderHeaderAndFooter() {
   cartListEl.innerHTML = cart
     .map(
       (product) => `
-      <li class="flex justify-between gap-2 items-center py-2">
-        <!-- product image -->
-        <img src="${product.thumbnail}" alt="product" class="w-[50px] h-[50px] object-cover rounded-lg" />
-        <!-- product name -->
-        <div class="text-sm line-clamp-1 flex-grow">${product.title}</div>
-        <!-- product price -->
-        <span class="text-sm text-orange-600">$${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
+      <li class="">
+        <a href="product-detail.html?id=${product.id}" class="flex justify-between gap-2 items-center py-2 px-1 hover:bg-gray-200">
+          <!-- product image -->
+          <img src="${product.thumbnail}" alt="product" class="w-[50px] h-[50px] object-cover rounded-lg" />
+          <!-- product name -->
+          <div class="text-sm line-clamp-1 flex-grow">${product.title}</div>
+          <!-- product price -->
+          <span class="text-sm text-orange-600">$${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
+        </a>
       </li>
     `,
     )

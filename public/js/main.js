@@ -157,7 +157,7 @@ searchInputEl.addEventListener("keydown", async (e) => {
   if (e.key === "Enter") {
     const search = searchInputEl.value;
     if (search) {
-      window.location.href = `/public/category.html?search=${search}`;
+      window.location.href = `category.html?search=${search}`;
     }
   }
 });
