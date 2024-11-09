@@ -70,7 +70,7 @@ async function renderHeaderAndFooter() {
               <div class="text-lg font-bold">Total: $<span id="cart-total">9.99</span></div>
             </div>
             <div class="mt-4">
-              <button class="rounded-md bg-orange-600 px-4 py-2 text-white hover:bg-orange-500 w-full">
+              <button class="rounded-md bg-orange-600 px-4 py-2 text-white hover:bg-orange-500 w-full" id="view-cart">
                 View Cart
               </button>
             </div>
@@ -82,6 +82,7 @@ async function renderHeaderAndFooter() {
   //get element
   const cartListEl = document.getElementById("cart-list");
   const cartTotalEl = document.getElementById("cart-total");
+  const viewCartEl = document.getElementById("view-cart");
 
   //render
   cartListEl.innerHTML = cart
@@ -111,6 +112,11 @@ async function renderHeaderAndFooter() {
       0,
     )
     .toFixed(2);
+
+  //event listener
+  viewCartEl.addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
 
   const footerEl = document.getElementById("footer");
   footerEl.innerHTML = `
