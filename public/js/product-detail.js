@@ -85,6 +85,15 @@ function renderProductInfo() {
             <div class="border-l-[1px] border-gray-300 pl-3">
               <span>${product.stock} pieces available</span>
             </div>
+            
+          </div>
+          <!-- category -->
+          <div class="mt-3 text-sm text-gray-500">
+              Category: ${productCategory}
+          </div>
+          <!-- brand -->
+          <div class="${product.brand ? "" : "hidden"} mt-3 text-sm text-gray-500">
+            Brand: ${product.brand}
           </div>
           <!-- product price -->
           <div class="mt-4 flex items-center gap-2 rounded-lg bg-gray-100 p-3">

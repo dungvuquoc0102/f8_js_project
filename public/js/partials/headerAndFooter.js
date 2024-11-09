@@ -1,4 +1,4 @@
-async function renderHeaderAndFooter() {
+function renderHeaderAndFooter() {
   //get cart in localstorage
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let addedProductNumber = cart.length;

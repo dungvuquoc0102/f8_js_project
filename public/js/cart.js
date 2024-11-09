@@ -14,20 +14,35 @@ function calcCartTotal() {
       return total + item.price * item.quantity;
     }, 0)
     .toFixed(2);
-  productDiscount = +cart
-    .reduce((total, item) => {
-      return (
-        total + (item.price * item.quantity * item.discountPercentage) / 100
-      );
-    }, 0)
-    .toFixed(2);
   shippingFee = 0;
-  totalAmount = +(subTotal - productDiscount + shippingFee).toFixed(2);
+  totalAmount =
+    +cart
+      .reduce((total, item) => {
+        return (
+          total +
+          +(
+            +((item.price * (100 - item.discountPercentage)) / 100).toFixed(2) *
+            item.quantity
+          ).toFixed(2)
+        );
+      }, 0)
+      .toFixed(2) + shippingFee;
+  productDiscount = +(subTotal - totalAmount).toFixed(2);
 }
-function decreaseQuantity(id) {
+function cartDecreaseQuantity(id) {
   const item = cart.find((item) => item.id === id);
   if (item.quantity > 1) {
     item.quantity--;
+    localStorage.setItem("cart", JSON.stringify(cart) || []);
+    calcCartTotal();
+    renderCartTotal();
+    renderCartItemList();
+  }
+}
+function cartIncreaseQuantity(id) {
+  const item = cart.find((item) => item.id === id);
+  if (item.quantity < item.stock) {
+    item.quantity++;
     localStorage.setItem("cart", JSON.stringify(cart) || []);
     calcCartTotal();
     renderCartTotal();
@@ -38,6 +53,7 @@ function decreaseQuantity(id) {
 //get elements
 const cartTotalEl = document.getElementById("cart-total-detail");
 const cartItemListEl = document.getElementById("cart-item-list");
+const searchInputEl = document.getElementById("search");
 
 //render
 function renderCartTotal() {
@@ -69,7 +85,14 @@ function renderCartTotal() {
   `;
 }
 function renderCartItemList() {
-  // const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart.length === 0) {
+    cartItemListEl.innerHTML = `
+    <tr>
+      <td colspan="5" class="text-center pt-4 text-gray-400">No items in cart</td>
+    </tr>
+    `;
+    return;
+  }
   cartItemListEl.innerHTML = cart
     .map(
       (item) => `
@@ -101,10 +124,9 @@ function renderCartItemList() {
           class="mx-auto flex w-fit items-center rounded-md border-[1px] border-gray-300"
         >
           <button
-            class="flex h-[38px] w-[38px] items-center justify-center rounded-lg"
-            id="decrease-quantity"
+            class="flex h-[38px] w-[38px] items-center justify-center rounded-lg decrease-quantity-btn ${+item.quantity === 1 ? "opacity-50" : ""}"
             data-id="${item.id}"
-            onclick="decreaseQuantity(${item.id})"
+            ${item.quantity === 1 ? "disabled" : ""}
           >
             <i class="fa-solid fa-minus text-gray-500"></i>
           </button>
@@ -112,14 +134,12 @@ function renderCartItemList() {
             class="h-[38px] w-[60px] border-x-[1px] border-gray-300 text-center outline-none"
             type="text"
             value="${item.quantity}"
-            id="quantity"
             disabled
-            data-id="${item.id}"
           />
           <button
-            class="flex h-[38px] w-[38px] items-center justify-center rounded-lg"
-            id="increase-quantity"
+            class="flex h-[38px] w-[38px] items-center justify-center rounded-lg increase-quantity-btn ${+item.quantity === item.stock ? "opacity-50" : ""}"
             data-id="${item.id}"
+            ${item.quantity === item.stock ? "disabled" : ""}
           >
             <i class="fa-solid fa-plus text-gray-500"></i>
           </button>
@@ -127,12 +147,11 @@ function renderCartItemList() {
       </td>
       <td class="py-2">
         <!-- total -->
-        <span class="text-orange-500" id="item-total" data-id="${item.id}">$${(+((item.price * (100 - item.discountPercentage)) / 100).toFixed(2) * item.quantity).toFixed(2)}</span>
+        <span class="text-orange-500">$${(+((item.price * (100 - item.discountPercentage)) / 100).toFixed(2) * item.quantity).toFixed(2)}</span>
       </td>
       <td class="py-2">
         <button
-          class="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-500"
-          id="delete-item"
+          class="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-500 delete-item-btn"
           data-id="${item.id}"
         >
           Delete
@@ -143,7 +162,48 @@ function renderCartItemList() {
   `,
     )
     .join("");
+
+  //get elements
+  const decreaseQuantityBtns = document.querySelectorAll(
+    ".decrease-quantity-btn",
+  );
+  const increaseQuantityBtns = document.querySelectorAll(
+    ".increase-quantity-btn",
+  );
+  const deleteItemBtns = document.querySelectorAll(".delete-item-btn");
+
+  //add event listeners
+  decreaseQuantityBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      cartDecreaseQuantity(+btn.dataset.id);
+    });
+  });
+  increaseQuantityBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      cartIncreaseQuantity(+btn.dataset.id);
+    });
+  });
+  deleteItemBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      cart = cart.filter((item) => item.id !== +btn.dataset.id);
+      localStorage.setItem("cart", JSON.stringify(cart) || []);
+      calcCartTotal();
+      renderCartTotal();
+      renderCartItemList();
+      renderHeaderAndFooter();
+    });
+  });
 }
+
+//event listeners
+searchInputEl.addEventListener("keydown", async (e) => {
+  if (e.key === "Enter") {
+    const search = searchInputEl.value;
+    if (search) {
+      window.location.href = `category.html?search=${search}`;
+    }
+  }
+});
 
 //run app
 calcCartTotal();
