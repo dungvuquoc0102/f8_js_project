@@ -150,12 +150,18 @@ function renderCartItemList() {
             <i class="fa-solid fa-plus text-gray-500"></i>
           </button>
         </div>
+        <button
+          class="md:hidden mt-4 rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-500 delete-item-btn"
+          data-id="${item.id}"
+        >
+          Delete
+        </button>
       </td>
       <td class="py-2 hidden md:table-cell">
         <!-- total -->
         <span class="text-orange-500">$${(+((item.price * (100 - item.discountPercentage)) / 100).toFixed(2) * item.quantity).toFixed(2)}</span>
       </td>
-      <td class="py-2">
+      <td class="py-2 hidden md:table-cell">
         <button
           class="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-500 delete-item-btn"
           data-id="${item.id}"
