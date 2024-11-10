@@ -17,7 +17,7 @@ function renderHeaderAndFooter() {
   headerEl.innerHTML = `
     <div class="mx-auto max-w-4xl flex items-center gap-2 py-5 px-2 lg:px-0">
       <!-- logo -->
-      <a href="index.html" class="hidden md:block">
+      <a href="index.html" class="w-[42px] overflow-hidden block mr-2 lg:w-auto lg:mr-0 lg:overflow-auto">
         <svg
           viewBox="0 0 192 65"
           class="aspect-[162/50] h-[40px] fill-white"
@@ -50,7 +50,7 @@ function renderHeaderAndFooter() {
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
         <!-- number of items -->
-        <div class="absolute top-[-10px] right-[-5px] lg:left-[11px] bg-white px-[4px] lg:px-[8px] py-[1px] flex justify-center items-center text-orange-500 rounded-full text-sm border-2 border-[#FB5631]">
+        <div class="${addedProductNumber ? "" : "hidden"} absolute top-[-10px] right-[-5px] lg:left-[11px] bg-white px-[4px] lg:px-[8px] py-[1px] flex justify-center items-center text-orange-500 rounded-full text-sm border-2 border-[#FB5631]">
           <span class="leading-none" id="added-product-number">${addedProductNumber}</span>
         </div>
         <!-- cart preview -->
@@ -66,7 +66,7 @@ function renderHeaderAndFooter() {
               <div class="${addedProductNumber ? "hidden" : ""} text-center mt-3" id="no-item-in-cart">No item in cart</div>
             </div>
             <!-- total price -->
-            <div class="mt-4 text-end">
+            <div class="${addedProductNumber ? "" : "hidden"} mt-4 text-end">
               <div class="text-lg font-bold">Total: $<span id="cart-total">9.99</span></div>
             </div>
             <div class="mt-4">

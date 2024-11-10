@@ -48,6 +48,7 @@ function renderProductImage() {
       </div>
     `;
   });
+  console.log(productImageListHTML);
   let productImageHTML = "";
   productImageHTML += `
     <div class="swiper mySwiperPreview">
@@ -306,7 +307,6 @@ addToCartBtn.addEventListener("click", () => {
   if (cartItem) {
     let tempQuantity = cartItem.quantity + +quantityInput.value;
     if (tempQuantity > product.stock) {
-      alert(`Only ${product.stock} pieces available`);
       return;
     }
     cartItem.quantity = tempQuantity;
@@ -314,7 +314,6 @@ addToCartBtn.addEventListener("click", () => {
     cart.push({ ...product, quantity: +quantityInput.value });
   }
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Added to cart");
   renderHeaderAndFooter();
 });
 searchInputEl.addEventListener("keydown", async (e) => {

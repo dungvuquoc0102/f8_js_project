@@ -100,19 +100,25 @@ function renderCartItemList() {
       <td class="max-w-[200px] py-2">
         <a href="product-detail.html?id=${item.id}" class="flex items-center">
           <img
-            class="h-16 w-16 rounded-lg object-cover"
+            class="w-32 aspect-square rounded-lg object-cover"
             src="${item.thumbnail}"
             alt="product"
           />
-          <div class="ml-3">
-            <p class="line-clamp-2 text-left text-sm font-bold">
+          <div class="ml-3 flex flex-col gap-2">
+            <p class="line-clamp-2 text-left font-bold">
               ${item.title}
             </p>
             <p class="text-left text-xs text-gray-400">${item.category}</p>
+            <p class="text-left md:hidden">
+              <!-- old price -->
+              <span class="text-sm text-gray-400 line-through">$${item.price}</span>
+              <!-- new price -->
+              <span>$${((item.price * (100 - item.discountPercentage)) / 100).toFixed(2)}</span>
+            </p>
           </div>
         </a>
       </td>
-      <td class="py-2">
+      <td class="py-2 hidden md:table-cell">
         <!-- old price -->
         <span class="text-sm text-gray-400 line-through">$${item.price}</span>
         <!-- new price -->
@@ -145,7 +151,7 @@ function renderCartItemList() {
           </button>
         </div>
       </td>
-      <td class="py-2">
+      <td class="py-2 hidden md:table-cell">
         <!-- total -->
         <span class="text-orange-500">$${(+((item.price * (100 - item.discountPercentage)) / 100).toFixed(2) * item.quantity).toFixed(2)}</span>
       </td>

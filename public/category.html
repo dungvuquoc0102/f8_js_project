@@ -24,112 +24,118 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   <body class="bg-[#f3f3f3] font-['Nunito']">
     <header id="header"></header>
     <!-- product list -->
-    <section class="min-h-screen">
-      <!-- filter -->
-      <div
-        class="mx-auto mt-7 max-w-4xl rounded-lg border-gray-200 bg-white shadow-md"
-      >
-        <!-- title -->
-        <h2 class="border-b-2 border-gray-200 p-4 text-[20px] text-orange-600">
-          Filter
-        </h2>
-        <!-- content -->
-        <div class="flex justify-between gap-5 p-5 pt-0">
-          <!-- filter by category -->
-          <div class="flex flex-col items-center">
-            <h3 class="p-4 text-[16px]">Filter by Category</h3>
-            <select
-              name="catogory"
-              id="category"
-              class="border-[1px] border-gray-400"
-            >
-              <option value="all">All</option>
-              <option value="phone">Phone</option>
-              <option value="laptop">Laptop</option>
-              <option value="tablet">Tablet</option>
-            </select>
-          </div>
-          <!-- filter by brand -->
-          <div class="flex flex-col items-center">
-            <h3 class="p-4 text-[16px]">Filter by Brand</h3>
-            <select
-              name="brand"
-              id="brand"
-              class="border-[1px] border-gray-400"
-            >
-              <option value="all">All</option>
-              <option value="apple">Apple</option>
-              <option value="samsung">Samsung</option>
-              <option value="sony">Sony</option>
-            </select>
-          </div>
-          <!-- filter by price -->
-          <div class="flex flex-col items-center">
-            <h3 class="p-4 text-[16px]">Filter by Price</h3>
-            <div>
-              <label for="price-low" class="">
-                <input
-                  type="text"
-                  name="low-price"
-                  id="low-price"
-                  class="w-[100px] border-[1px] border-gray-400"
-                  placeholder="$ Low"
-                />
-              </label>
-              <span>-</span>
-              <label for="price-high" class="">
-                <input
-                  type="text"
-                  name="high-price"
-                  id="high-price"
-                  class="w-[100px] border-[1px] border-gray-400"
-                  placeholder="$ High"
-                />
-              </label>
-            </div>
-            <!-- button filter by price -->
-            <div>
-              <button
-                class="mt-4 rounded-lg bg-orange-600 px-4 py-1 text-white hover:bg-orange-500"
-                id="sort-price-button"
+    <section class="mx-auto mt-4 min-h-screen max-w-4xl lg:mt-7">
+      <div class="mx-2 lg:mx-0">
+        <!-- filter -->
+        <div class="rounded-lg border-gray-200 bg-white shadow-md">
+          <!-- title -->
+          <h2
+            class="border-b-2 border-gray-200 p-3 text-[18px] text-orange-600 lg:p-4 lg:text-[22px]"
+          >
+            Filter
+          </h2>
+          <!-- content -->
+          <div class="grid grid-cols-2 p-3 pt-0 lg:grid-cols-4 lg:gap-5 lg:p-5">
+            <!-- filter by category -->
+            <div class="flex flex-col items-center">
+              <h3 class="p-4 text-[16px]">Filter by Category</h3>
+              <select
+                name="catogory"
+                id="category"
+                class="border-[1px] border-gray-400"
               >
-                Filter
-              </button>
+                <option value="all">All</option>
+                <option value="phone">Phone</option>
+                <option value="laptop">Laptop</option>
+                <option value="tablet">Tablet</option>
+              </select>
             </div>
-          </div>
-          <!-- sort with price and alphabet -->
-          <div class="flex flex-col items-center">
-            <h3 class="p-4 text-[16px]">Sort</h3>
-            <select name="sort" id="sort" class="border-[1px] border-gray-400">
-              <option value="default">Choose filter style</option>
-              <option value="asc-title">A - Z</option>
-              <option value="desc-title">Z - A</option>
-              <option value="asc-price">Price Ascending</option>
-              <option value="desc-price">Price Descending</option>
-            </select>
+            <!-- filter by brand -->
+            <div class="flex flex-col items-center">
+              <h3 class="p-4 text-[16px]">Filter by Brand</h3>
+              <select
+                name="brand"
+                id="brand"
+                class="border-[1px] border-gray-400"
+              >
+                <option value="all">All</option>
+                <option value="apple">Apple</option>
+                <option value="samsung">Samsung</option>
+                <option value="sony">Sony</option>
+              </select>
+            </div>
+            <!-- filter by price -->
+            <div class="flex flex-col items-center">
+              <h3 class="p-4 text-[16px]">Filter by Price</h3>
+              <div class="flex items-center justify-between gap-2">
+                <label for="price-low" class="">
+                  <input
+                    type="text"
+                    name="low-price"
+                    id="low-price"
+                    class="w-[100px] border-[1px] border-gray-400"
+                    placeholder="$ Low"
+                  />
+                </label>
+                <span>-</span>
+                <label for="price-high" class="">
+                  <input
+                    type="text"
+                    name="high-price"
+                    id="high-price"
+                    class="w-[100px] border-[1px] border-gray-400"
+                    placeholder="$ High"
+                  />
+                </label>
+              </div>
+              <!-- button filter by price -->
+              <div>
+                <button
+                  class="mt-4 rounded-lg bg-orange-600 px-4 py-1 text-white hover:bg-orange-500"
+                  id="sort-price-button"
+                >
+                  Filter
+                </button>
+              </div>
+            </div>
+            <!-- sort with price and alphabet -->
+            <div class="flex flex-col items-center">
+              <h3 class="p-4 text-[16px]">Sort</h3>
+              <select
+                name="sort"
+                id="sort"
+                class="border-[1px] border-gray-400"
+              >
+                <option value="default">Choose filter style</option>
+                <option value="asc-title">A - Z</option>
+                <option value="desc-title">Z - A</option>
+                <option value="asc-price">Price Ascending</option>
+                <option value="desc-price">Price Descending</option>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- content -->
-      <div>
-        <div class="mx-auto mb-10 mt-7 max-w-4xl">
-          <!-- title -->
-          <div
-            class="rounded-t-lg border-b-2 border-orange-400 bg-white p-4 text-center text-[18px] font-bold uppercase text-orange-600 shadow-md"
-          >
-            <h2>Result</h2>
-          </div>
-          <!-- content -->
-          <div>
-            <ul
-              class="grid grid-cols-5 gap-5 py-5"
-              id="result-product-list"
-            ></ul>
+        <!-- content -->
+        <div>
+          <div class="mx-auto mb-5 mt-4 max-w-4xl lg:mb-10 lg:mt-7">
+            <!-- title -->
             <div
-              class="mt-[-20px] hidden rounded-lg border-gray-200 bg-white p-5 shadow-md"
-              id="no-product-found"
+              class="rounded-t-lg border-b-2 border-orange-400 bg-white p-3 text-center font-bold uppercase text-orange-600 shadow-md lg:p-4 lg:text-[18px]"
             >
-              No product found
+              <h2>Result</h2>
+            </div>
+            <!-- content -->
+            <div>
+              <ul
+                class="grid grid-cols-2 gap-3 py-3 md:grid-cols-3 lg:grid-cols-5 lg:gap-5 lg:py-5"
+                id="result-product-list"
+              ></ul>
+              <div
+                class="mt-[-20px] hidden rounded-lg border-gray-200 bg-white p-5 shadow-md"
+                id="no-product-found"
+              >
+                No product found
+              </div>
             </div>
           </div>
         </div>

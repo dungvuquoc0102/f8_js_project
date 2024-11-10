@@ -49,7 +49,7 @@ async function renderBigSaleProducts() {
           src="${product.thumbnail}"
           alt="sale product 1"
         />
-        <div class="py-3 text-[20px] text-orange-600">
+        <div class="py-3 lg:text-[20px] text-orange-600">
           <span>$</span>
           <span>${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
         </div>
@@ -77,12 +77,12 @@ async function renderGoodRatingProducts() {
           src="${product.thumbnail}"
           alt="sale product 1"
         />
-        <div class="flex w-full items-center justify-between px-3">
-          <div class="text-[18px]">
+        <div class="flex w-full items-center justify-between px-0 lg:px-3">
+          <div class="text-[14px] lg:text-[18px] flex items-center gap-1">
             <span>${product.rating}</span>
-            <i class="fa-solid fa-star text-orange-400 text-[16px]"></i>
+            <i class="fa-solid fa-star text-orange-400 text-[10px] lg:text-[16px]"></i>
           </div>
-          <div class="py-3 text-[14px]">
+          <div class="py-3 text-[10px] lg:text-[14px]">
             <span>$</span>
             <span>${((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)}</span>
           </div>

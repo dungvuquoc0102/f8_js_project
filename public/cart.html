@@ -17,10 +17,10 @@
   <body class="bg-[#f3f3f3] font-['Nunito']">
     <header id="header"></header>
     <!-- cart -->
-    <div class="min-h-screen">
+    <div class="mx-auto min-h-screen max-w-4xl">
       <!-- cart total -->
       <div
-        class="mx-auto mt-7 max-w-4xl rounded-lg bg-white p-5 pb-2 shadow-md"
+        class="mx-2 mt-4 rounded-lg bg-white p-3 pb-1 shadow-md lg:mx-0 lg:mt-7 lg:p-5 lg:pb-2"
         id="cart-total-detail"
       >
         <h1 class="mb-3 text-2xl text-orange-500">Cart Detail</h1>
@@ -49,14 +49,16 @@
         </div>
       </div>
       <!-- cart item list -->
-      <div class="mx-auto mt-7 max-w-4xl rounded-lg bg-white p-5 shadow-md">
+      <div
+        class="mx-2 my-4 rounded-lg bg-white p-3 shadow-md lg:mx-0 lg:my-7 lg:p-5"
+      >
         <table class="w-full">
           <thead>
             <tr class="border-b-[1px] border-gray-200">
               <th class="pb-3">Product</th>
-              <th class="pb-3">Price</th>
+              <th class="hidden pb-3 md:table-cell">Price</th>
               <th class="pb-3">Quantity</th>
-              <th class="pb-3">Total</th>
+              <th class="hidden pb-3 md:table-cell">Total</th>
               <th class="pb-3">Action</th>
             </tr>
           </thead>
