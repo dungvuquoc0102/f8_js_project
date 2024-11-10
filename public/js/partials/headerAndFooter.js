@@ -15,9 +15,9 @@ function renderHeaderAndFooter() {
     "shadow-md",
   );
   headerEl.innerHTML = `
-    <div class="mx-auto flex max-w-4xl items-center py-5">
+    <div class="mx-auto max-w-4xl flex items-center gap-2 py-5 px-2 lg:px-0">
       <!-- logo -->
-      <a href="index.html">
+      <a href="index.html" class="hidden md:block">
         <svg
           viewBox="0 0 192 65"
           class="aspect-[162/50] h-[40px] fill-white"
@@ -30,9 +30,9 @@ function renderHeaderAndFooter() {
         </svg>
       </a>
       <!-- search input -->
-      <div class="flex flex-auto justify-center">
+      <div class="flex-grow flex justify-center">
         <input
-          class="w-2/3 rounded-lg px-4 py-2 shadow-md outline-none focus:border-orange-400"
+          class="w-full md:w-2/3 rounded-lg px-4 py-2 shadow-md outline-none focus:border-orange-400"
           type="text"
           placeholder="Search"
           id="search"
@@ -40,28 +40,28 @@ function renderHeaderAndFooter() {
         />
       </div>
       <!-- login signup -->
-      <div class="flex gap-4 text-white">
+      <div class="hidden flex gap-4 text-white">
         <a href="#!">Sign up</a>
         <a href="#!">Log in</a>
       </div>
       <!-- cart -->
-      <div class="group flex gap-4 text-white ml-4 relative cursor-pointer" id="cart">
+      <div class="group flex gap-4 text-white ml-4 mr-1 relative cursor-pointer" id="cart">
         <div>
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
         <!-- number of items -->
-        <div class="absolute top-[-10px] left-[11px] bg-white px-[8px] py-[1px] flex justify-center items-center text-orange-500 rounded-full text-sm border-2 border-[#FB5631]">
+        <div class="absolute top-[-10px] right-[-5px] lg:left-[11px] bg-white px-[4px] lg:px-[8px] py-[1px] flex justify-center items-center text-orange-500 rounded-full text-sm border-2 border-[#FB5631]">
           <span class="leading-none" id="added-product-number">${addedProductNumber}</span>
         </div>
         <!-- cart preview -->
-        <div id="cart-preview" class="group-hover:block hidden absolute bottom-0 translate-y-full -right-7 z-[1000] transition-all p-4 text-black">
+        <div id="cart-preview" class="group-hover:block hidden absolute bottom-0 translate-y-full -right-7 z-[1000] transition-all p-4 text-black mx-2 lg:mx-0">
           <div class="bg-white shadow-md w-[300px] p-3 rounded-lg">
             <!-- title -->
             <h2 class="text-lg font-bold">Cart</h2>
             <!-- cart list -->
             <div class="mt-3">
               <!-- cart list -->
-              <ul id="cart-list" class="divide-y divide-gray-300"></ul>
+              <ul id="cart-list" class="divide-y divide-gray-300 max-h-[300px] overflow-auto"></ul>
               <!-- no item in cart -->
               <div class="${addedProductNumber ? "hidden" : ""} text-center mt-3" id="no-item-in-cart">No item in cart</div>
             </div>
